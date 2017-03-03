@@ -1,8 +1,6 @@
 # Whatlanggo
 
-[![Build Status](https://travis-ci.org/abadojack/whatlanggo.svg?branch=master)](https://travis-ci.org/abadojack/whatlanggo)
-
-[![GoDoc](https://godoc.org/github.com/abadojack/whatlanggo?status.png)](https://godoc.org/github.com/abadojack/whatlanggo)
+[![Build Status](https://travis-ci.org/abadojack/whatlanggo.svg?branch=master)](https://travis-ci.org/abadojack/whatlanggo)  [![Go Report Card](https://goreportcard.com/badge/github.com/abadojack/whatlanggo)](https://goreportcard.com/report/github.com/abadojack/whatlanggo)  [![GoDoc](https://godoc.org/github.com/abadojack/whatlanggo?status.png)](https://godoc.org/github.com/abadojack/whatlanggo)
 
 Natural language detection for Go.
 ## Features
@@ -59,11 +57,10 @@ options1 := whatlanggo.Options{
 info = whatlanggo.DetectWithOptions("Mi ne scias", options1)
 fmt.Println("Language:", whatlanggo.LangToString(info.Lang), "Script:", whatlanggo.Scripts[info.Script])
 ```
-For more details, please check the [documentation](https://godoc.org/github.com/abadojack/whatlanggo) 
+For more details, please check the [documentation](https://godoc.org/github.com/abadojack/whatlanggo)
 
 ## License
 MIT
 
 ## Acknowledgements
 Thanks to [greyblake](https://github.com/greyblake) Potapov Sergey for creating [whatlang-rs](https://github.com/greyblake/whatlang-rs) where I got the idea and logic from.
-
