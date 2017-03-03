@@ -41,7 +41,7 @@ import "github.com/abadojack/whatlanggo"
 options := whatlanggo.Options{
 	Blacklist: map[whatlanggo.Lang]bool{
 		whatlanggo.Ydd: true,
-	}
+	},
 }
 
 info := whatlanggo.DetectWithOptions("האקדמיה ללשון העברית", options)
@@ -49,11 +49,11 @@ info := whatlanggo.DetectWithOptions("האקדמיה ללשון העברית", o
 fmt.Println("Language:", whatlanggo.LangToString(info.Lang), "Script:", whatlanggo.Scripts[info.Script])
 
 //Whitelist
-options1 = whatlanggo.Options{
+options1 := whatlanggo.Options{
 	Whitelist: map[whatlanggo.Lang]bool{
 		whatlanggo.Epo: true,
 		whatlanggo.Ukr: true,
-	}
+	},
 }
 
 info = whatlanggo.DetectWithOptions("Mi ne scias", options1)
