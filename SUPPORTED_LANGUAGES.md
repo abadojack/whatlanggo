@@ -1,6 +1,6 @@
 # whatlanggo
 
-Natural language detection implemented in Rust.
+Natural language detection implemented in Go.
 Please check also [README](https://github.com/abadojack/whatlanggo/blob/master/README.md)
 and [documentation](https://godoc.org/github.com/abadojack/whatlanggo).
 
