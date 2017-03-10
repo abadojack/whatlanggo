@@ -59,6 +59,9 @@ fmt.Println("Language:", whatlanggo.LangToString(info.Lang), "Script:", whatlang
 ```
 For more details, please check the [documentation](https://godoc.org/github.com/abadojack/whatlanggo)
 
+##TODO
+Add reliabilty metrics in the _[Info](https://godoc.org/github.com/abadojack/whatlanggo#Info)_ struct
+
 ## License
 MIT
 
