@@ -65,5 +65,8 @@ Add reliabilty metrics in the _[Info](https://godoc.org/github.com/abadojack/wha
 ## License
 MIT
 
+## Contributors
+[Dipon Ghosh](https://github.com/DiponGhosh)
+
 ## Acknowledgements
 Thanks to [greyblake](https://github.com/greyblake) Potapov Sergey for creating [whatlang-rs](https://github.com/greyblake/whatlang-rs) where I got the idea and logic from.
