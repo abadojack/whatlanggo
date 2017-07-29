@@ -63,10 +63,10 @@ For more details, please check the [documentation](https://godoc.org/github.com/
 Add reliabilty metrics in the _[Info](https://godoc.org/github.com/abadojack/whatlanggo#Info)_ struct
 
 ## License
-MIT
+[MIT](https://github.com/abadojack/whatlanggo/blob/master/LICENSE)
 
-## Contributors
-[Dipon Ghosh](https://github.com/DiponGhosh)
+## Derivation
+whatlanggo is a derivative [Franc](https://github.com/wooorm/franc) (JavaScript, MIT) by [Titus Wormer](https://github.com/wooorm)
 
 ## Acknowledgements
-Thanks to [greyblake](https://github.com/greyblake) Potapov Sergey for creating [whatlang-rs](https://github.com/greyblake/whatlang-rs) where I got the idea and logic from.
+Thanks to [greyblake](https://github.com/greyblake) Potapov Sergey for creating [whatlang-rs](https://github.com/greyblake/whatlang-rs) from where I got the idea and logic.
