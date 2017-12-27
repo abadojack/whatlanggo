@@ -81,26 +81,16 @@ func Test_isBengali(t *testing.T) {
 	}
 }
 
-func Test_isKatakana(t *testing.T) {
+func Test_isHiraganaKatakana(t *testing.T) {
 	tests := map[rune]bool{
 		'カ': true, 'Ґ': false,
-	}
-
-	for r, want := range tests {
-		got := isKatakana(r)
-		if want != got {
-			t.Fatalf("%#U want %t got %t", r, want, got)
-		}
-	}
-}
-
-func Test_isHiragana(t *testing.T) {
-	tests := map[rune]bool{
+		'ｴ': true, 'ᄁ': false,
 		'ひ': true, 'Ꙕ': false,
+		'ゐ': true, 'ф': false,
 	}
 
 	for r, want := range tests {
-		got := isHiragana(r)
+		got := isHiraganaKatakana(r)
 		if want != got {
 			t.Fatalf("%#U want %t got %t", r, want, got)
 		}

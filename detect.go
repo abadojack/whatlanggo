@@ -82,9 +82,7 @@ func detectLangBaseOnScript(text string, options Options, script *unicode.RangeT
 		return Sin
 	case unicode.Khmer:
 		return Khm
-	case unicode.Katakana:
-		return Jpn
-	case unicode.Hiragana:
+	case _HiraganaKatakana:
 		return Jpn
 	}
 	return -1
