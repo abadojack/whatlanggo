@@ -28,8 +28,12 @@ func Test_Detect(t *testing.T) {
 		"အားလုံးလူသားတွေအခမဲ့နှင့်ဂုဏ်သိက္ခာနှင့်လူ့အခွင့်အရေးအတွက်တန်းတူဖွားမြင်ကြသည်။": {Mya, unicode.Myanmar},
 		"වෙලාව කියද?":            {Sin, unicode.Sinhala},
 		"ពួកម៉ាកខ្ញុំពីរនាក់នេះ": {Khm, unicode.Khmer},
-		"コンニチワ":    {Jpn, unicode.Katakana},
-		"どうもありがとう": {Jpn, unicode.Hiragana},
+		"支那の上海の或町です。":            {Jpn, unicode.Hiragana},
+		"或日の暮方の事である。":            {Jpn, unicode.Hiragana},
+		"今日は":                    {Jpn, unicode.Hiragana},
+		"コンニチハ":                  {Jpn, unicode.Katakana},
+		"ﾀﾅｶ ﾀﾛｳ":                {Jpn, unicode.Katakana},
+		"どうもありがとう":               {Jpn, unicode.Hiragana},
 	}
 
 	for key, value := range tests {
