@@ -45,8 +45,7 @@ func DetectScript(text string) *unicode.RangeTable {
 		{isCyrillic, unicode.Cyrillic, new(int)},
 		{isArabic, unicode.Arabic, new(int)},
 		{isDevanagari, unicode.Devanagari, new(int)},
-		{isHiragana, unicode.Hiragana, new(int)},
-		{isKatakana, unicode.Katakana, new(int)},
+		{isHiraganaKatakana, _HiraganaKatakana, new(int)},
 		{isEthiopic, unicode.Ethiopic, new(int)},
 		{isHebrew, unicode.Hebrew, new(int)},
 		{isBengali, unicode.Bengali, new(int)},
@@ -88,21 +87,31 @@ func DetectScript(text string) *unicode.RangeTable {
 	}
 
 	//find the script that occurs the most in the text and return it.
+	jpCount := 0
 	max := 0
 	maxScript := &unicode.RangeTable{}
 	for _, script := range scriptCounter {
 		if *script.count > max {
 			max = *script.count
 			maxScript = script.script
+			if script.script == _HiraganaKatakana {
+				jpCount = max
+			}
 		}
 	}
 
-	if max != 0 {
+	switch {
+	case max == 0:
+		//if no valid script is detected, return nil.
+		return nil
+	case max != 0 && (maxScript == unicode.Han && jpCount > 0):
+		// If Hiragana or Katakana is included, even if judged as Mandarin,
+		// it is regarded as Japanese. Japanese uses Kanji (unicode.Han)
+		// in addition to Hiragana and Katakana.
+		return _HiraganaKatakana
+	default:
 		return maxScript
 	}
-
-	//if no valid script is detected, return nil.
-	return nil
 }
 
 var isCyrillic = func(r rune) bool {
@@ -137,12 +146,8 @@ var isBengali = func(r rune) bool {
 	return unicode.Is(unicode.Bengali, r)
 }
 
-var isHiragana = func(r rune) bool {
-	return unicode.Is(unicode.Hiragana, r)
-}
-
-var isKatakana = func(r rune) bool {
-	return unicode.Is(unicode.Katakana, r)
+var isHiraganaKatakana = func(r rune) bool {
+	return unicode.Is(_HiraganaKatakana, r)
 }
 
 var isHangul = func(r rune) bool {
