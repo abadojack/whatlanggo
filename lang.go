@@ -264,6 +264,182 @@ func CodeToLang(code string) Lang {
 	}
 }
 
+//LangToStringShort converts enum into ISO 639-1 code as a string.
+//
+// Return empty string when there is no ISO 639-1 code.
+func LangToStringShort(lang Lang) string {
+	switch lang {
+	case Aka:
+		return "ak"
+	case Amh:
+		return "am"
+	case Arb:
+		return "ar"
+	case Azj:
+		return "az" // Azerbaijani iso 639-3 is aze, iso 639-1 az
+	case Bel:
+		return "be"
+	case Ben:
+		return "bn"
+	case Bho:
+		return "bh"
+	case Bul:
+		return "bg"
+	case Ceb:
+		return "" // No iso 639-1 code
+	case Ces:
+		return "cs"
+	case Cmn:
+		return "zh" // No iso 639-1, but http://www.loc.gov/standards/iso639-2/faq.html#24
+	case Dan:
+		return "da"
+	case Deu:
+		return "de"
+	case Ell:
+		return "el"
+	case Eng:
+		return "en"
+	case Epo:
+		return "eo"
+	case Est:
+		return "et"
+	case Fin:
+		return "fi"
+	case Fra:
+		return "fr"
+	case Guj:
+		return "gu"
+	case Hat:
+		return "ht"
+	case Hau:
+		return "ha"
+	case Heb:
+		return "he"
+	case Hin:
+		return "hi"
+	case Hrv:
+		return "hr"
+	case Hun:
+		return "hu"
+	case Ibo:
+		return "ig"
+	case Ilo:
+		return "" // No iso639-1
+	case Ind:
+		return "id"
+	case Ita:
+		return "it"
+	case Jav:
+		return "jv"
+	case Jpn:
+		return "ja"
+	case Kan:
+		return "kn"
+	case Kat:
+		return "ka"
+	case Khm:
+		return "km"
+	case Kin:
+		return "rw"
+	case Kor:
+		return "ko"
+	case Kur:
+		return "ku"
+	case Lav:
+		return "lv"
+	case Lit:
+		return "lt"
+	case Mai:
+		return "" // No iso639-1
+	case Mal:
+		return "ml"
+	case Mar:
+		return "mr"
+	case Mkd:
+		return "mk"
+	case Mlg:
+		return "mg"
+	case Mya:
+		return "my"
+	case Nep:
+		return "ne"
+	case Nld:
+		return "nl"
+	case Nno:
+		return "nn"
+	case Nob:
+		return "nb"
+	case Nya:
+		return "ny"
+	case Ori:
+		return "or"
+	case Orm:
+		return "om"
+	case Pan:
+		return "pa"
+	case Pes:
+		return "" // No iso639-1
+	case Pol:
+		return "pl"
+	case Por:
+		return "pt"
+	case Ron:
+		return "ro"
+	case Run:
+		return "rn"
+	case Rus:
+		return "ru"
+	case Sin:
+		return "si"
+	case Skr:
+		return "" // No iso639-1
+	case Slv:
+		return "sl"
+	case Sna:
+		return "sn"
+	case Som:
+		return "so"
+	case Spa:
+		return "es"
+	case Srp:
+		return "sr"
+	case Swe:
+		return "sv"
+	case Tam:
+		return "ta"
+	case Tel:
+		return "te"
+	case Tgl:
+		return "tl"
+	case Tha:
+		return "th"
+	case Tir:
+		return "ti"
+	case Tuk:
+		return "tk"
+	case Tur:
+		return "tr"
+	case Uig:
+		return "ug"
+	case Ukr:
+		return "uk"
+	case Urd:
+		return "ur"
+	case Uzb:
+		return "uz"
+	case Vie:
+		return "vi"
+	case Ydd:
+		return "" // No iso639-1
+	case Yor:
+		return "yo"
+	case Zul:
+		return "zu"
+	default:
+		return ""
+	}
+}
+
 //LangToString converts enum into ISO 639-3 code as a string.
 func LangToString(lang Lang) string {
 	switch lang {
