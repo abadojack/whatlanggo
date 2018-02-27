@@ -16,6 +16,7 @@ const (
 	Ceb
 	Ces
 	Cmn
+	Yue
 	Dan
 	Deu
 	Ell
@@ -115,6 +116,8 @@ func CodeToLang(code string) Lang {
 		return Ces
 	case "cmn":
 		return Cmn
+	case "yue":
+		return Yue
 	case "dan":
 		return Dan
 	case "deu":
@@ -291,6 +294,8 @@ func LangToStringShort(lang Lang) string {
 		return "cs"
 	case Cmn:
 		return "zh" // No iso 639-1, but http://www.loc.gov/standards/iso639-2/faq.html#24
+	case Yue:
+		return "zh"
 	case Dan:
 		return "da"
 	case Deu:
@@ -465,6 +470,8 @@ func LangToString(lang Lang) string {
 		return "ces"
 	case Cmn:
 		return "cmn"
+	case Yue:
+		return "yue"
 	case Dan:
 		return "dan"
 	case Deu:
@@ -627,6 +634,7 @@ var Langs = map[Lang]string{
 	Ceb: "Cebuano",
 	Ces: "Czech",
 	Cmn: "Mandarin",
+	Yue: "Cantonese",
 	Dan: "Danish",
 	Deu: "German",
 	Ell: "Greek",

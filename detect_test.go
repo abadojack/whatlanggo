@@ -30,6 +30,7 @@ func Test_Detect(t *testing.T) {
 		"ពួកម៉ាកខ្ញុំពីរនាក់នេះ":             {Khm, unicode.Khmer},
 		"其疾如風、其徐如林、侵掠如火、不動如山、難知如陰、動如雷震。":     {Cmn, unicode.Han},
 		"知彼知己、百戰不殆。不知彼而知己、一勝一負。不知彼不知己、毎戰必殆。": {Cmn, unicode.Han},
+		"係唔係佢哋嘅？": {Yue, unicode.Han},
 		"支那の上海の或町です。":                        {Jpn, _HiraganaKatakana},
 		"或日の暮方の事である。":                        {Jpn, _HiraganaKatakana},
 		"今日は":                                {Jpn, _HiraganaKatakana},

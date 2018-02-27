@@ -4,7 +4,7 @@
 
 Natural language detection for Go.
 ## Features
-* Supports [84 languages](https://github.com/abadojack/whatlanggo/blob/master/SUPPORTED_LANGUAGES.md)
+* Supports [85 languages](https://github.com/abadojack/whatlanggo/blob/master/SUPPORTED_LANGUAGES.md)
 * 100% written in Go
 * No external dependencies
 * Fast
