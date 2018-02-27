@@ -51,7 +51,7 @@ func detectLangBaseOnScript(text string, options Options, script *unicode.RangeT
 	case unicode.Arabic:
 		return detectLangInProfiles(text, options, arabicLangs)
 	case unicode.Han:
-		return Cmn
+		return detectWhichChinese(text)
 	case unicode.Bengali:
 		return Ben
 	case unicode.Hangul:
@@ -87,6 +87,36 @@ func detectLangBaseOnScript(text string, options Options, script *unicode.RangeT
 	}
 	return -1
 }
+
+func detectWhichChinese(text string) Lang {
+	distinctiveMandarinChars := map[rune]int{
+		'是': 1,
+		'不': 1,
+		'的': 1,
+	}
+	distinctiveCantoChars := map[rune]int{
+		'係': 1,
+		'唔': 1,
+		'嘅': 1,
+		'佢': 1,
+	}
+	cmnCount := 0
+	yueCount := 0
+	for _, hanRune := range text {
+		if _, exists := distinctiveMandarinChars[hanRune]; exists {
+			cmnCount++
+		}
+		if _, exists := distinctiveCantoChars[hanRune]; exists {
+			yueCount++
+		}
+	}
+
+	if yueCount > cmnCount {
+		return Yue
+	}
+	return Cmn
+}
+
 func detectLangInProfiles(text string, options Options, langProfileList langProfileList) Lang {
 	trigrams := getTrigramsWithPositions(text)
 	type langDistance struct {

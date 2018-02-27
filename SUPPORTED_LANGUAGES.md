@@ -12,6 +12,7 @@ and [documentation](https://godoc.org/github.com/abadojack/whatlanggo).
 | English        | eng       | Eng |
 | Russian        | rus       | Rus |
 | Mandarin       | cmn       | Cmn |
+| Cantonese      | yue       | Yue |
 | Spanish        | spa       | Spa |
 | Portuguese     | por       | Por |
 | Italian        | ita       | Ita |
