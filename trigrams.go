@@ -2,6 +2,7 @@ package whatlanggo
 
 import (
 	"sort"
+	"strings"
 	"unicode"
 )
 
@@ -28,7 +29,12 @@ func getTrigramsWithPositions(text string) map[string]int {
 		i++
 	}
 
-	sort.SliceStable(trigrams, func(i, j int) bool { return trigrams[i].count < trigrams[j].count })
+	sort.SliceStable(trigrams, func(i, j int) bool {
+		if trigrams[i].count == trigrams[j].count {
+			return strings.Compare(trigrams[i].trigram, trigrams[j].trigram) < 0
+		}
+		return trigrams[i].count < trigrams[j].count
+	})
 
 	trigramsWithPositions := map[string]int{}
 
