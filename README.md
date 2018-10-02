@@ -57,16 +57,16 @@ options1 := whatlanggo.Options{
 info = whatlanggo.DetectWithOptions("Mi ne scias", options1)
 fmt.Println("Language:", whatlanggo.LangToString(info.Lang), "Script:", whatlanggo.Scripts[info.Script])
 ```
-For more details, please check the [documentation](https://godoc.org/github.com/abadojack/whatlanggo)
+For more details, please check the [documentation](https://godoc.org/github.com/abadojack/whatlanggo).
 
-##TODO
-Add reliabilty metrics in the _[Info](https://godoc.org/github.com/abadojack/whatlanggo#Info)_ struct
+## TODO
+Add reliability metrics in the _[Info](https://godoc.org/github.com/abadojack/whatlanggo#Info)_ struct.
 
 ## License
 [MIT](https://github.com/abadojack/whatlanggo/blob/master/LICENSE)
 
 ## Derivation
-whatlanggo is a derivative [Franc](https://github.com/wooorm/franc) (JavaScript, MIT) by [Titus Wormer](https://github.com/wooorm)
+whatlanggo is a derivative of [Franc](https://github.com/wooorm/franc) (JavaScript, MIT) by [Titus Wormer](https://github.com/wooorm).
 
 ## Acknowledgements
-Thanks to [greyblake](https://github.com/greyblake) Potapov Sergey for creating [whatlang-rs](https://github.com/greyblake/whatlang-rs) from where I got the idea and logic.
+Thanks to [greyblake](https://github.com/greyblake) (Potapov Sergey) for creating [whatlang-rs](https://github.com/greyblake/whatlang-rs) from where I got the idea and logic.
