@@ -33,8 +33,11 @@ func DetectWithOptions(text string, options Options) Info {
 			Confidence: confidence,
 		}
 	}
-	return Info{}
-
+	return Info{
+		Lang: -1,
+		Script: nil,
+		Confidence: 0,
+	}
 }
 
 func detectLangBaseOnScript(text string, options Options, script *unicode.RangeTable) (Lang, float64) {
@@ -116,7 +119,7 @@ func detectLangInProfiles(text string, options Options, langProfileList langProf
 	if len(langDistances) == 0 {
 		return -1, 0
 	}
-	
+
 	sort.SliceStable(langDistances, func(i, j int) bool { return langDistances[i].dist < langDistances[j].dist })
 	lang_dist1 := langDistances[0];
     lang_dist2 := langDistances[1];
