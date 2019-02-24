@@ -6,4 +6,5 @@ import "unicode"
 type Info struct {
 	Lang   Lang
 	Script *unicode.RangeTable
+	Confidence float64
 }

@@ -26,17 +26,18 @@ func DetectLangWithOptions(text string, options Options) Lang {
 func DetectWithOptions(text string, options Options) Info {
 	script := DetectScript(text)
 	if script != nil {
-		lang := detectLangBaseOnScript(text, options, script)
+		lang, confidence := detectLangBaseOnScript(text, options, script)
 		return Info{
 			Lang:   lang,
 			Script: script,
+			Confidence: confidence,
 		}
 	}
 	return Info{}
 
 }
 
-func detectLangBaseOnScript(text string, options Options, script *unicode.RangeTable) Lang {
+func detectLangBaseOnScript(text string, options Options, script *unicode.RangeTable) (Lang, float64) {
 	switch script {
 	case unicode.Latin:
 		return detectLangInProfiles(text, options, latinLangs)
@@ -51,43 +52,43 @@ func detectLangBaseOnScript(text string, options Options, script *unicode.RangeT
 	case unicode.Arabic:
 		return detectLangInProfiles(text, options, arabicLangs)
 	case unicode.Han:
-		return Cmn
+		return Cmn, 1
 	case unicode.Bengali:
-		return Ben
+		return Ben, 1
 	case unicode.Hangul:
-		return Kor
+		return Kor, 1
 	case unicode.Georgian:
-		return Kat
+		return Kat, 1
 	case unicode.Greek:
-		return Ell
+		return Ell, 1
 	case unicode.Kannada:
-		return Kan
+		return Kan, 1
 	case unicode.Tamil:
-		return Tam
+		return Tam, 1
 	case unicode.Thai:
-		return Tha
+		return Tha, 1
 	case unicode.Gujarati:
-		return Guj
+		return Guj, 1
 	case unicode.Gurmukhi:
-		return Pan
+		return Pan, 1
 	case unicode.Telugu:
-		return Tel
+		return Tel, 1
 	case unicode.Malayalam:
-		return Mal
+		return Mal, 1
 	case unicode.Oriya:
-		return Ori
+		return Ori, 1
 	case unicode.Myanmar:
-		return Mya
+		return Mya, 1
 	case unicode.Sinhala:
-		return Sin
+		return Sin, 1
 	case unicode.Khmer:
-		return Khm
+		return Khm, 1
 	case _HiraganaKatakana:
-		return Jpn
+		return Jpn, 1
 	}
-	return -1
+	return -1, 0
 }
-func detectLangInProfiles(text string, options Options, langProfileList langProfileList) Lang {
+func detectLangInProfiles(text string, options Options, langProfileList langProfileList) (Lang, float64) {
 	trigrams := getTrigramsWithPositions(text)
 	type langDistance struct {
 		lang Lang
@@ -113,11 +114,49 @@ func detectLangInProfiles(text string, options Options, langProfileList langProf
 	}
 
 	if len(langDistances) == 0 {
-		return -1
+		return -1, 0
 	}
+	
 	sort.SliceStable(langDistances, func(i, j int) bool { return langDistances[i].dist < langDistances[j].dist })
+	lang_dist1 := langDistances[0];
+    lang_dist2 := langDistances[1];
+    score1 := 90000 - lang_dist1.dist;
+	score2 := 90000 - lang_dist2.dist;
+	
+	var confidence float64
+	if score1 == 0 {
+        // If score1 is 0, score2 is 0 as well, because array is sorted.
+        // Therefore there is no language to return.
+        return -1, 0
+    } else if score2 == 0 {
+        // If score2 is 0, return first language, to prevent division by zero in the rate formula.
+        // In this case confidence is calculated by another formula.
+        // At this point there are two options:
+        // * Text contains random characters that accidentally match trigrams of one of the languages
+        // * Text really matches one of the languages.
+        //
+        // Number 500.0 is based on experiments and common sense expectations.
+        confidence = float64((score1) / 500.0)
+        if confidence > 1.0 {
+            confidence = 1.0
+        }
+        return lang_dist1.lang, confidence
+	}
+	
+	rate := float64((score1 - score2)) / float64(score2);
 
-	return langDistances[0].lang
+    // Hyperbola function. Everything that is above the function has confidence = 1.0
+    // If rate is below, confidence is calculated proportionally.
+    // Numbers 12.0 and 0.05 are obtained experimentally, so the function represents common sense.
+    //
+    confident_rate := float64(12.0 / len(trigrams)) + 0.05;
+    if rate > confident_rate {
+        confidence = 1.0
+    } else {
+        confidence = rate / confident_rate
+    };
+
+    return lang_dist1.lang, confidence
 }
 
 func calculateDistance(langTrigrams []string, textTrigrams map[string]int) int {
