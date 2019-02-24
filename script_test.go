@@ -7,12 +7,12 @@ import (
 
 func Test_DetectScript(t *testing.T) {
 	tests := map[string]*unicode.RangeTable{
-		"123456789-=?":                                                  nil,
-		"Hello, world!":                                                 unicode.Latin,
-		"Привет всем!":                                                  unicode.Cyrillic,
-		"ქართული ენა მსოფლიო ":                                          unicode.Georgian,
-		"県見夜上温国阪題富販":                                                    unicode.Han,
-		" ككل حوالي 1.6، ومعظم الناس ":                                  unicode.Arabic,
+		"123456789-=?":  nil,
+		"Hello, world!": unicode.Latin,
+		"Привет всем!":  unicode.Cyrillic,
+		"ქართული ენა მსოფლიო ":         unicode.Georgian,
+		"県見夜上温国阪題富販":                   unicode.Han,
+		" ككل حوالي 1.6، ومعظم الناس ": unicode.Arabic,
 		"हिमालयी वन चिड़िया (जूथेरा सालिमअली) चिड़िया की एक प्रजाति है": unicode.Devanagari,
 		"היסטוריה והתפתחות של האלפבית העברי":                            unicode.Hebrew,
 		"የኢትዮጵያ ፌዴራላዊ ዴሞክራሲያዊሪፐብሊክ":                                     unicode.Ethiopic,
