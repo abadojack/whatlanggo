@@ -5,7 +5,7 @@ import (
 	"unicode"
 )
 
-func Test_DetectScript(t *testing.T) {
+func TestDetectScript(t *testing.T) {
 	tests := map[string]*unicode.RangeTable{
 		"123456789-=?":  nil,
 		"Hello, world!": unicode.Latin,
@@ -29,7 +29,7 @@ func Test_DetectScript(t *testing.T) {
 	}
 }
 
-func Test_isLatin(t *testing.T) {
+func TestIsLatin(t *testing.T) {
 	tests := map[rune]bool{
 		'z': true, 'A': true, 'č': true, 'š': true, 'Ĵ': true, 'ж': false,
 	}
@@ -42,7 +42,7 @@ func Test_isLatin(t *testing.T) {
 	}
 }
 
-func Test_isEthiopic(t *testing.T) {
+func TestIsEthiopic(t *testing.T) {
 	tests := map[rune]bool{
 		'ፚ': true, 'ᎀ': true, 'а': false, 'L': false,
 	}
@@ -55,7 +55,7 @@ func Test_isEthiopic(t *testing.T) {
 	}
 }
 
-func Test_isGeorgian(t *testing.T) {
+func TestIsGeorgian(t *testing.T) {
 	tests := map[rune]bool{
 		'რ': true, 'Я': false,
 	}
@@ -68,7 +68,7 @@ func Test_isGeorgian(t *testing.T) {
 	}
 }
 
-func Test_isBengali(t *testing.T) {
+func TestIsBengali(t *testing.T) {
 	tests := map[rune]bool{
 		'а': false, 'ই': true,
 	}
@@ -81,7 +81,7 @@ func Test_isBengali(t *testing.T) {
 	}
 }
 
-func Test_isHiraganaKatakana(t *testing.T) {
+func TestIsHiraganaKatakana(t *testing.T) {
 	tests := map[rune]bool{
 		'カ': true, 'Ґ': false,
 		'ｴ': true, 'ᄁ': false,
@@ -97,7 +97,7 @@ func Test_isHiraganaKatakana(t *testing.T) {
 	}
 }
 
-func Test_isHangul(t *testing.T) {
+func TestIsHangul(t *testing.T) {
 	tests := map[rune]bool{
 		'ᄁ': true, 't': false,
 	}
@@ -110,7 +110,7 @@ func Test_isHangul(t *testing.T) {
 	}
 }
 
-func Test_isGreek(t *testing.T) {
+func TestIsGreek(t *testing.T) {
 	tests := map[rune]bool{
 		'φ': true, 'ф': false,
 	}
@@ -123,7 +123,7 @@ func Test_isGreek(t *testing.T) {
 	}
 }
 
-func Test_isKannada(t *testing.T) {
+func TestIsKannada(t *testing.T) {
 	tests := map[rune]bool{
 		'ಡ': true, 'S': false,
 	}
@@ -136,7 +136,7 @@ func Test_isKannada(t *testing.T) {
 	}
 }
 
-func Test_isTamil(t *testing.T) {
+func TestIsTamil(t *testing.T) {
 	tests := map[rune]bool{
 		'ஐ': true, 'Ж': false,
 	}
@@ -149,7 +149,7 @@ func Test_isTamil(t *testing.T) {
 	}
 }
 
-func Test_isThai(t *testing.T) {
+func TestIsThai(t *testing.T) {
 	tests := map[rune]bool{
 		'ก': true, '๛': true, 'Ґ': false,
 	}
@@ -162,7 +162,7 @@ func Test_isThai(t *testing.T) {
 	}
 }
 
-func Test_isGujarati(t *testing.T) {
+func TestIsGujarati(t *testing.T) {
 	tests := map[rune]bool{
 		'ઁ': true, '૱': true, 'l': false,
 	}
@@ -175,7 +175,7 @@ func Test_isGujarati(t *testing.T) {
 	}
 }
 
-func Test_isGurmukhi(t *testing.T) {
+func TestIsGurmukhi(t *testing.T) {
 	tests := map[rune]bool{
 		'ਁ': true, 'ੴ': true, 'Ж': false,
 	}
@@ -188,7 +188,7 @@ func Test_isGurmukhi(t *testing.T) {
 	}
 }
 
-func Test_isTelugu(t *testing.T) {
+func TestIsTelugu(t *testing.T) {
 	tests := map[rune]bool{
 		'ఁ': true, '౿': true, 'l': false,
 	}
@@ -201,7 +201,7 @@ func Test_isTelugu(t *testing.T) {
 	}
 }
 
-func Test_isOriya(t *testing.T) {
+func TestIsOriya(t *testing.T) {
 	tests := map[rune]bool{
 		'ଐ': true, '୷': true, 'l': false,
 	}

@@ -8,35 +8,35 @@ type scriptCounter struct {
 	count     *int
 }
 
-//Scripts is the set of Unicode script tables.
+// Scripts is the set of Unicode script tables.
 var Scripts = map[*unicode.RangeTable]string{
-	unicode.Latin:      "Latin",
-	unicode.Cyrillic:   "Cyrillic",
 	unicode.Arabic:     "Arabic",
-	unicode.Devanagari: "Devanagari",
-	unicode.Hiragana:   "Hiragana",
-	unicode.Katakana:   "Katakana",
-	unicode.Ethiopic:   "Ethiopic",
-	unicode.Hebrew:     "Hebrew",
 	unicode.Bengali:    "Bengali",
-	unicode.Georgian:   "Georgian",
+	unicode.Cyrillic:   "Cyrillic",
+	unicode.Ethiopic:   "Ethiopic",
+	unicode.Devanagari: "Devanagari",
 	unicode.Han:        "Han",
-	unicode.Hangul:     "Hangul",
+	unicode.Georgian:   "Georgian",
 	unicode.Greek:      "Greek",
-	unicode.Kannada:    "Kannada",
-	unicode.Tamil:      "Tamil",
-	unicode.Thai:       "Thai",
 	unicode.Gujarati:   "Gujarati",
 	unicode.Gurmukhi:   "Gurmukhi",
-	unicode.Telugu:     "Telugu",
-	unicode.Malayalam:  "Malayalam",
-	unicode.Oriya:      "Oriya",
-	unicode.Myanmar:    "Myanmar",
-	unicode.Sinhala:    "Sinhala",
+	unicode.Hangul:     "Hangul",
+	unicode.Hebrew:     "Hebrew",
+	unicode.Hiragana:   "Hiragana",
+	unicode.Kannada:    "Kannada",
+	unicode.Katakana:   "Katakana",
 	unicode.Khmer:      "Khmer",
+	unicode.Latin:      "Latin",
+	unicode.Malayalam:  "Malayalam",
+	unicode.Myanmar:    "Myanmar",
+	unicode.Oriya:      "Oriya",
+	unicode.Sinhala:    "Sinhala",
+	unicode.Tamil:      "Tamil",
+	unicode.Telugu:     "Telugu",
+	unicode.Thai:       "Thai",
 }
 
-//DetectScript returns only the script of the given text.
+// DetectScript returns only the script of the given text.
 func DetectScript(text string) *unicode.RangeTable {
 	halfLen := len(text) / 2
 

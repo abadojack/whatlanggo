@@ -2,8 +2,9 @@ package whatlanggo
 
 import "testing"
 
-func Test_CodeToLang(t *testing.T) {
+func TestCodeToLang(t *testing.T) {
 	tests := map[string]Lang{
+		"afr": Afr,
 		"aka": Aka,
 		"amh": Amh,
 		"arb": Arb,
@@ -98,8 +99,9 @@ func Test_CodeToLang(t *testing.T) {
 	}
 }
 
-func Test_LangToString(t *testing.T) {
+func TestLangToString(t *testing.T) {
 	tests := map[Lang]string{
+		Afr: "afr",
 		Aka: "aka",
 		Amh: "amh",
 		Arb: "arb",
@@ -194,8 +196,9 @@ func Test_LangToString(t *testing.T) {
 	}
 }
 
-func Test_LangToStringShort(t *testing.T) {
+func TestLangToStringShort(t *testing.T) {
 	tests := map[Lang]string{
+		Afr: "af",
 		Aka: "ak",
 		Amh: "am",
 		Arb: "ar",

@@ -2,7 +2,7 @@ package whatlanggo
 
 import "testing"
 
-func Test_count(t *testing.T) {
+func TestCount(t *testing.T) {
 	tests := map[string]map[string]int{
 		"":             {"": 0},
 		",":            {"": 0},
@@ -23,7 +23,7 @@ func Test_count(t *testing.T) {
 	}
 }
 
-func Test_toTrigramChar(t *testing.T) {
+func TestToTrigramChar(t *testing.T) {
 	tests := map[rune]rune{
 		'a': 'a', 'z': 'z', 'A': 'A', 'Z': 'Z', 'Ж': 'Ж', 'ß': 'ß',
 		//punctuation, digits, ... etc
@@ -38,7 +38,7 @@ func Test_toTrigramChar(t *testing.T) {
 	}
 }
 
-func Test_getTrigramsWithPositions(t *testing.T) {
+func TestGetTrigramsWithPositions(t *testing.T) {
 	tests := map[string]map[string]int{
 		"xaaaaabbbbd": {"aaa": 0, "bbb": 1},
 	}

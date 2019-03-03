@@ -2,7 +2,7 @@ package whatlanggo
 
 import "testing"
 
-func Test_isStopChar(t *testing.T) {
+func TestIsStopChar(t *testing.T) {
 	tests := map[rune]bool{
 		//Space
 		'\t': true, '\n': true, '\v': true, '\r': true, '\f': true, 0x85: true, 0xA0: true,
@@ -22,7 +22,7 @@ func Test_isStopChar(t *testing.T) {
 	}
 }
 
-func Test_abs(t *testing.T) {
+func TestAbs(t *testing.T) {
 	tests := map[int]int{
 		1:      1,
 		-0:     0,
