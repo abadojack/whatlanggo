@@ -189,7 +189,7 @@ func TestLangToString(t *testing.T) {
 	}
 
 	for lang, codeStr := range tests {
-		got := LangToString(lang)
+		got := lang.Iso6393()
 		if got != codeStr {
 			t.Fatalf("%d: want %s got %s", lang, codeStr, got)
 		}
@@ -286,7 +286,7 @@ func TestLangToStringShort(t *testing.T) {
 	}
 
 	for lang, codeStr := range tests {
-		got := LangToStringShort(lang)
+		got := lang.Iso6391()
 		if got != codeStr {
 			t.Fatalf("%d: want %s got %s", lang, codeStr, got)
 		}

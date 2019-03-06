@@ -91,537 +91,319 @@ const (
 	Zul
 )
 
-//CodeToLang gets enum by ISO 639-3 code as a string.
+// CodeToLang gets enum by ISO 639-3 code as a string.
 func CodeToLang(code string) Lang {
-	switch code {
-	case "afr":
-		return Afr
-	case "aka":
-		return Aka
-	case "amh":
-		return Amh
-	case "arb":
-		return Arb
-	case "azj":
-		return Azj
-	case "bel":
-		return Bel
-	case "ben":
-		return Ben
-	case "bho":
-		return Bho
-	case "bul":
-		return Bul
-	case "ceb":
-		return Ceb
-	case "ces":
-		return Ces
-	case "cmn":
-		return Cmn
-	case "dan":
-		return Dan
-	case "deu":
-		return Deu
-	case "ell":
-		return Ell
-	case "eng":
-		return Eng
-	case "epo":
-		return Epo
-	case "est":
-		return Est
-	case "fin":
-		return Fin
-	case "fra":
-		return Fra
-	case "guj":
-		return Guj
-	case "hat":
-		return Hat
-	case "hau":
-		return Hau
-	case "heb":
-		return Heb
-	case "hin":
-		return Hin
-	case "hrv":
-		return Hrv
-	case "hun":
-		return Hun
-	case "ibo":
-		return Ibo
-	case "ilo":
-		return Ilo
-	case "ind":
-		return Ind
-	case "ita":
-		return Ita
-	case "jav":
-		return Jav
-	case "jpn":
-		return Jpn
-	case "kan":
-		return Kan
-	case "kat":
-		return Kat
-	case "khm":
-		return Khm
-	case "kin":
-		return Kin
-	case "kor":
-		return Kor
-	case "kur":
-		return Kur
-	case "lav":
-		return Lav
-	case "lit":
-		return Lit
-	case "mai":
-		return Mai
-	case "mal":
-		return Mal
-	case "mar":
-		return Mar
-	case "mkd":
-		return Mkd
-	case "mlg":
-		return Mlg
-	case "mya":
-		return Mya
-	case "nep":
-		return Nep
-	case "nld":
-		return Nld
-	case "nno":
-		return Nno
-	case "nob":
-		return Nob
-	case "nya":
-		return Nya
-	case "ori":
-		return Ori
-	case "orm":
-		return Orm
-	case "pan":
-		return Pan
-	case "pes":
-		return Pes
-	case "pol":
-		return Pol
-	case "por":
-		return Por
-	case "ron":
-		return Ron
-	case "run":
-		return Run
-	case "rus":
-		return Rus
-	case "sin":
-		return Sin
-	case "skr":
-		return Skr
-	case "slv":
-		return Slv
-	case "sna":
-		return Sna
-	case "som":
-		return Som
-	case "spa":
-		return Spa
-	case "srp":
-		return Srp
-	case "swe":
-		return Swe
-	case "tam":
-		return Tam
-	case "tel":
-		return Tel
-	case "tgl":
-		return Tgl
-	case "tha":
-		return Tha
-	case "tir":
-		return Tir
-	case "tuk":
-		return Tuk
-	case "tur":
-		return Tur
-	case "uig":
-		return Uig
-	case "ukr":
-		return Ukr
-	case "urd":
-		return Urd
-	case "uzb":
-		return Uzb
-	case "vie":
-		return Vie
-	case "ydd":
-		return Ydd
-	case "yor":
-		return Yor
-	case "zul":
-		return Zul
-	default:
-		return -1
+	lang := map[string]Lang{
+		"afr": Afr,
+		"aka": Aka,
+		"amh": Amh,
+		"arb": Arb,
+		"azj": Azj,
+		"bel": Bel,
+		"ben": Ben,
+		"bho": Bho,
+		"bul": Bul,
+		"ceb": Ceb,
+		"ces": Ces,
+		"cmn": Cmn,
+		"dan": Dan,
+		"deu": Deu,
+		"ell": Ell,
+		"eng": Eng,
+		"epo": Epo,
+		"est": Est,
+		"fin": Fin,
+		"fra": Fra,
+		"guj": Guj,
+		"hat": Hat,
+		"hau": Hau,
+		"heb": Heb,
+		"hin": Hin,
+		"hrv": Hrv,
+		"hun": Hun,
+		"ibo": Ibo,
+		"ilo": Ilo,
+		"ind": Ind,
+		"ita": Ita,
+		"jav": Jav,
+		"jpn": Jpn,
+		"kan": Kan,
+		"kat": Kat,
+		"khm": Khm,
+		"kin": Kin,
+		"kor": Kor,
+		"kur": Kur,
+		"lav": Lav,
+		"lit": Lit,
+		"mai": Mai,
+		"mal": Mal,
+		"mar": Mar,
+		"mkd": Mkd,
+		"mlg": Mlg,
+		"mya": Mya,
+		"nep": Nep,
+		"nld": Nld,
+		"nno": Nno,
+		"nob": Nob,
+		"nya": Nya,
+		"ori": Ori,
+		"orm": Orm,
+		"pan": Pan,
+		"pes": Pes,
+		"pol": Pol,
+		"por": Por,
+		"ron": Ron,
+		"run": Run,
+		"rus": Rus,
+		"sin": Sin,
+		"skr": Skr,
+		"slv": Slv,
+		"sna": Sna,
+		"som": Som,
+		"spa": Spa,
+		"srp": Srp,
+		"swe": Swe,
+		"tam": Tam,
+		"tel": Tel,
+		"tgl": Tgl,
+		"tha": Tha,
+		"tir": Tir,
+		"tuk": Tuk,
+		"tur": Tur,
+		"uig": Uig,
+		"ukr": Ukr,
+		"urd": Urd,
+		"uzb": Uzb,
+		"vie": Vie,
+		"ydd": Ydd,
+		"yor": Yor,
+		"zul": Zul,
 	}
+
+	if val, ok := lang[code]; ok {
+		return val
+	}
+
+	return -1
 }
 
-//LangToStringShort converts enum into ISO 639-1 code as a string.
-//
+// Iso6391 returns ISO 639-1 code of Lang as a string.
+func (lang Lang) Iso6391() string {
+	return LangToStringShort(lang)
+}
+
+// LangToStringShort converts enum into ISO 639-1 code as a string.
 // Return empty string when there is no ISO 639-1 code.
+// Deprecated: LangToStringShort is deprected and exists for historical
+// compatibility. Please use `Lang.Iso6391()` instead.
 func LangToStringShort(lang Lang) string {
-	switch lang {
-	case Afr:
-		return "af"
-	case Aka:
-		return "ak"
-	case Amh:
-		return "am"
-	case Arb:
-		return "ar"
-	case Azj:
-		return "az" // Azerbaijani iso 639-3 is aze, iso 639-1 az
-	case Bel:
-		return "be"
-	case Ben:
-		return "bn"
-	case Bho:
-		return "bh"
-	case Bul:
-		return "bg"
-	case Ceb:
-		return "" // No iso 639-1 code
-	case Ces:
-		return "cs"
-	case Cmn:
-		return "zh" // No iso 639-1, but http://www.loc.gov/standards/iso639-2/faq.html#24
-	case Dan:
-		return "da"
-	case Deu:
-		return "de"
-	case Ell:
-		return "el"
-	case Eng:
-		return "en"
-	case Epo:
-		return "eo"
-	case Est:
-		return "et"
-	case Fin:
-		return "fi"
-	case Fra:
-		return "fr"
-	case Guj:
-		return "gu"
-	case Hat:
-		return "ht"
-	case Hau:
-		return "ha"
-	case Heb:
-		return "he"
-	case Hin:
-		return "hi"
-	case Hrv:
-		return "hr"
-	case Hun:
-		return "hu"
-	case Ibo:
-		return "ig"
-	case Ilo:
-		return "" // No iso639-1
-	case Ind:
-		return "id"
-	case Ita:
-		return "it"
-	case Jav:
-		return "jv"
-	case Jpn:
-		return "ja"
-	case Kan:
-		return "kn"
-	case Kat:
-		return "ka"
-	case Khm:
-		return "km"
-	case Kin:
-		return "rw"
-	case Kor:
-		return "ko"
-	case Kur:
-		return "ku"
-	case Lav:
-		return "lv"
-	case Lit:
-		return "lt"
-	case Mai:
-		return "" // No iso639-1
-	case Mal:
-		return "ml"
-	case Mar:
-		return "mr"
-	case Mkd:
-		return "mk"
-	case Mlg:
-		return "mg"
-	case Mya:
-		return "my"
-	case Nep:
-		return "ne"
-	case Nld:
-		return "nl"
-	case Nno:
-		return "nn"
-	case Nob:
-		return "nb"
-	case Nya:
-		return "ny"
-	case Ori:
-		return "or"
-	case Orm:
-		return "om"
-	case Pan:
-		return "pa"
-	case Pes:
-		return "" // No iso639-1
-	case Pol:
-		return "pl"
-	case Por:
-		return "pt"
-	case Ron:
-		return "ro"
-	case Run:
-		return "rn"
-	case Rus:
-		return "ru"
-	case Sin:
-		return "si"
-	case Skr:
-		return "" // No iso639-1
-	case Slv:
-		return "sl"
-	case Sna:
-		return "sn"
-	case Som:
-		return "so"
-	case Spa:
-		return "es"
-	case Srp:
-		return "sr"
-	case Swe:
-		return "sv"
-	case Tam:
-		return "ta"
-	case Tel:
-		return "te"
-	case Tgl:
-		return "tl"
-	case Tha:
-		return "th"
-	case Tir:
-		return "ti"
-	case Tuk:
-		return "tk"
-	case Tur:
-		return "tr"
-	case Uig:
-		return "ug"
-	case Ukr:
-		return "uk"
-	case Urd:
-		return "ur"
-	case Uzb:
-		return "uz"
-	case Vie:
-		return "vi"
-	case Ydd:
-		return "" // No iso639-1
-	case Yor:
-		return "yo"
-	case Zul:
-		return "zu"
-	default:
-		return ""
+	langMap := map[Lang]string{
+		Afr: "af",
+		Aka: "ak",
+		Amh: "am",
+		Arb: "ar",
+		Azj: "az", // Azerbaijani iso 639-3 is aze, iso 639-1 az
+		Bel: "be",
+		Ben: "bn",
+		Bho: "bh",
+		Bul: "bg",
+		Ceb: "", // No iso 639-1 code
+		Ces: "cs",
+		Cmn: "zh", // No iso 639-1, but http://www.loc.gov/standards/iso639-2/faq.html#24
+		Dan: "da",
+		Deu: "de",
+		Ell: "el",
+		Eng: "en",
+		Epo: "eo",
+		Est: "et",
+		Fin: "fi",
+		Fra: "fr",
+		Guj: "gu",
+		Hat: "ht",
+		Hau: "ha",
+		Heb: "he",
+		Hin: "hi",
+		Hrv: "hr",
+		Hun: "hu",
+		Ibo: "ig",
+		Ilo: "", // No iso639-1
+		Ind: "id",
+		Ita: "it",
+		Jav: "jv",
+		Jpn: "ja",
+		Kan: "kn",
+		Kat: "ka",
+		Khm: "km",
+		Kin: "rw",
+		Kor: "ko",
+		Kur: "ku",
+		Lav: "lv",
+		Lit: "lt",
+		Mai: "", // No iso639-1
+		Mal: "ml",
+		Mar: "mr",
+		Mkd: "mk",
+		Mlg: "mg",
+		Mya: "my",
+		Nep: "ne",
+		Nld: "nl",
+		Nno: "nn",
+		Nob: "nb",
+		Nya: "ny",
+		Ori: "or",
+		Orm: "om",
+		Pan: "pa",
+		Pes: "", // No iso639-1
+		Pol: "pl",
+		Por: "pt",
+		Ron: "ro",
+		Run: "rn",
+		Rus: "ru",
+		Sin: "si",
+		Skr: "", // No iso639-1
+		Slv: "sl",
+		Sna: "sn",
+		Som: "so",
+		Spa: "es",
+		Srp: "sr",
+		Swe: "sv",
+		Tam: "ta",
+		Tel: "te",
+		Tgl: "tl",
+		Tha: "th",
+		Tir: "ti",
+		Tuk: "tk",
+		Tur: "tr",
+		Uig: "ug",
+		Ukr: "uk",
+		Urd: "ur",
+		Uzb: "uz",
+		Vie: "vi",
+		Ydd: "", // No iso639-1
+		Yor: "yo",
+		Zul: "zu",
 	}
+
+	if val, ok := langMap[lang]; ok {
+		return val
+	}
+
+	return ""
+}
+
+// Iso6393 returns ISO 639-3 code of Lang as a string.
+func (lang Lang) Iso6393() string {
+	return LangToString(lang)
 }
 
 // LangToString converts enum into ISO 639-3 code as a string.
+// Deprecated: LangToString is deprected and exists for historical
+// compatibility. Please use `Lang.Iso6393()` instead.
 func LangToString(lang Lang) string {
-	switch lang {
-	case Afr:
-		return "afr"
-	case Aka:
-		return "aka"
-	case Amh:
-		return "amh"
-	case Arb:
-		return "arb"
-	case Azj:
-		return "azj"
-	case Bel:
-		return "bel"
-	case Ben:
-		return "ben"
-	case Bho:
-		return "bho"
-	case Bul:
-		return "bul"
-	case Ceb:
-		return "ceb"
-	case Ces:
-		return "ces"
-	case Cmn:
-		return "cmn"
-	case Dan:
-		return "dan"
-	case Deu:
-		return "deu"
-	case Ell:
-		return "ell"
-	case Eng:
-		return "eng"
-	case Epo:
-		return "epo"
-	case Est:
-		return "est"
-	case Fin:
-		return "fin"
-	case Fra:
-		return "fra"
-	case Guj:
-		return "guj"
-	case Hat:
-		return "hat"
-	case Hau:
-		return "hau"
-	case Heb:
-		return "heb"
-	case Hin:
-		return "hin"
-	case Hrv:
-		return "hrv"
-	case Hun:
-		return "hun"
-	case Ibo:
-		return "ibo"
-	case Ilo:
-		return "ilo"
-	case Ind:
-		return "ind"
-	case Ita:
-		return "ita"
-	case Jav:
-		return "jav"
-	case Jpn:
-		return "jpn"
-	case Kan:
-		return "kan"
-	case Kat:
-		return "kat"
-	case Khm:
-		return "khm"
-	case Kin:
-		return "kin"
-	case Kor:
-		return "kor"
-	case Kur:
-		return "kur"
-	case Lav:
-		return "lav"
-	case Lit:
-		return "lit"
-	case Mai:
-		return "mai"
-	case Mal:
-		return "mal"
-	case Mar:
-		return "mar"
-	case Mkd:
-		return "mkd"
-	case Mlg:
-		return "mlg"
-	case Mya:
-		return "mya"
-	case Nep:
-		return "nep"
-	case Nld:
-		return "nld"
-	case Nno:
-		return "nno"
-	case Nob:
-		return "nob"
-	case Nya:
-		return "nya"
-	case Ori:
-		return "ori"
-	case Orm:
-		return "orm"
-	case Pan:
-		return "pan"
-	case Pes:
-		return "pes"
-	case Pol:
-		return "pol"
-	case Por:
-		return "por"
-	case Ron:
-		return "ron"
-	case Run:
-		return "run"
-	case Rus:
-		return "rus"
-	case Sin:
-		return "sin"
-	case Skr:
-		return "skr"
-	case Slv:
-		return "slv"
-	case Sna:
-		return "sna"
-	case Som:
-		return "som"
-	case Spa:
-		return "spa"
-	case Srp:
-		return "srp"
-	case Swe:
-		return "swe"
-	case Tam:
-		return "tam"
-	case Tel:
-		return "tel"
-	case Tgl:
-		return "tgl"
-	case Tha:
-		return "tha"
-	case Tir:
-		return "tir"
-	case Tuk:
-		return "tuk"
-	case Tur:
-		return "tur"
-	case Uig:
-		return "uig"
-	case Ukr:
-		return "ukr"
-	case Urd:
-		return "urd"
-	case Uzb:
-		return "uzb"
-	case Vie:
-		return "vie"
-	case Ydd:
-		return "ydd"
-	case Yor:
-		return "yor"
-	case Zul:
-		return "zul"
-	default:
-		return ""
+	langMap := map[Lang]string{
+		Afr: "afr",
+		Aka: "aka",
+		Amh: "amh",
+		Arb: "arb",
+		Azj: "azj",
+		Bel: "bel",
+		Ben: "ben",
+		Bho: "bho",
+		Bul: "bul",
+		Ceb: "ceb",
+		Ces: "ces",
+		Cmn: "cmn",
+		Dan: "dan",
+		Deu: "deu",
+		Ell: "ell",
+		Eng: "eng",
+		Epo: "epo",
+		Est: "est",
+		Fin: "fin",
+		Fra: "fra",
+		Guj: "guj",
+		Hat: "hat",
+		Hau: "hau",
+		Heb: "heb",
+		Hin: "hin",
+		Hrv: "hrv",
+		Hun: "hun",
+		Ibo: "ibo",
+		Ilo: "ilo",
+		Ind: "ind",
+		Ita: "ita",
+		Jav: "jav",
+		Jpn: "jpn",
+		Kan: "kan",
+		Kat: "kat",
+		Khm: "khm",
+		Kin: "kin",
+		Kor: "kor",
+		Kur: "kur",
+		Lav: "lav",
+		Lit: "lit",
+		Mai: "mai",
+		Mal: "mal",
+		Mar: "mar",
+		Mkd: "mkd",
+		Mlg: "mlg",
+		Mya: "mya",
+		Nep: "nep",
+		Nld: "nld",
+		Nno: "nno",
+		Nob: "nob",
+		Nya: "nya",
+		Ori: "ori",
+		Orm: "orm",
+		Pan: "pan",
+		Pes: "pes",
+		Pol: "pol",
+		Por: "por",
+		Ron: "ron",
+		Run: "run",
+		Rus: "rus",
+		Sin: "sin",
+		Skr: "skr",
+		Slv: "slv",
+		Sna: "sna",
+		Som: "som",
+		Spa: "spa",
+		Srp: "srp",
+		Swe: "swe",
+		Tam: "tam",
+		Tel: "tel",
+		Tgl: "tgl",
+		Tha: "tha",
+		Tir: "tir",
+		Tuk: "tuk",
+		Tur: "tur",
+		Uig: "uig",
+		Ukr: "ukr",
+		Urd: "urd",
+		Uzb: "uzb",
+		Vie: "vie",
+		Ydd: "ydd",
+		Yor: "yor",
+		Zul: "zul",
 	}
+
+	if val, ok := langMap[lang]; ok {
+		return val
+	}
+
+	return ""
 }
 
-//Langs represents a map of Lang to language name.
+// String returns the human-readable name of the language as a string.
+func (lang Lang) String() string {
+	if val, ok := Langs[lang]; ok {
+		return val
+	}
+
+	return ""
+}
+
+// Langs represents a map of Lang to language name.
 var Langs = map[Lang]string{
 	Afr: "Afrikaans",
 	Aka: "Akan",
@@ -700,7 +482,7 @@ var Langs = map[Lang]string{
 	Tuk: "Turkmen",
 	Tur: "Turkish",
 	Uig: "Uyghur",
-	Ukr: "Ukranian",
+	Ukr: "Ukrainian",
 	Urd: "Urdu",
 	Uzb: "Uzbek",
 	Vie: "Vietnamese",
