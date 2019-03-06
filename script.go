@@ -5,7 +5,7 @@ import "unicode"
 type scriptCounter struct {
 	checkFunc func(r rune) bool
 	script    *unicode.RangeTable
-	count     *int
+	count     int
 }
 
 // Scripts is the set of Unicode script tables.
@@ -41,29 +41,29 @@ func DetectScript(text string) *unicode.RangeTable {
 	halfLen := len(text) / 2
 
 	scriptCounter := []scriptCounter{
-		{isLatin, unicode.Latin, new(int)},
-		{isCyrillic, unicode.Cyrillic, new(int)},
-		{isArabic, unicode.Arabic, new(int)},
-		{isDevanagari, unicode.Devanagari, new(int)},
-		{isHiraganaKatakana, _HiraganaKatakana, new(int)},
-		{isEthiopic, unicode.Ethiopic, new(int)},
-		{isHebrew, unicode.Hebrew, new(int)},
-		{isBengali, unicode.Bengali, new(int)},
-		{isGeorgian, unicode.Georgian, new(int)},
-		{isHan, unicode.Han, new(int)},
-		{isHangul, unicode.Hangul, new(int)},
-		{isGreek, unicode.Greek, new(int)},
-		{isKannada, unicode.Kannada, new(int)},
-		{isTamil, unicode.Tamil, new(int)},
-		{isThai, unicode.Thai, new(int)},
-		{isGujarati, unicode.Gujarati, new(int)},
-		{isGurmukhi, unicode.Gurmukhi, new(int)},
-		{isTelugu, unicode.Telugu, new(int)},
-		{isMalayalam, unicode.Malayalam, new(int)},
-		{isOriya, unicode.Oriya, new(int)},
-		{isMyanmar, unicode.Myanmar, new(int)},
-		{isSinhala, unicode.Sinhala, new(int)},
-		{isKhmer, unicode.Khmer, new(int)},
+		{isLatin, unicode.Latin, 0},
+		{isCyrillic, unicode.Cyrillic, 0},
+		{isArabic, unicode.Arabic, 0},
+		{isDevanagari, unicode.Devanagari, 0},
+		{isHiraganaKatakana, _HiraganaKatakana, 0},
+		{isEthiopic, unicode.Ethiopic, 0},
+		{isHebrew, unicode.Hebrew, 0},
+		{isBengali, unicode.Bengali, 0},
+		{isGeorgian, unicode.Georgian, 0},
+		{isHan, unicode.Han, 0},
+		{isHangul, unicode.Hangul, 0},
+		{isGreek, unicode.Greek, 0},
+		{isKannada, unicode.Kannada, 0},
+		{isTamil, unicode.Tamil, 0},
+		{isThai, unicode.Thai, 0},
+		{isGujarati, unicode.Gujarati, 0},
+		{isGurmukhi, unicode.Gurmukhi, 0},
+		{isTelugu, unicode.Telugu, 0},
+		{isMalayalam, unicode.Malayalam, 0},
+		{isOriya, unicode.Oriya, 0},
+		{isMyanmar, unicode.Myanmar, 0},
+		{isSinhala, unicode.Sinhala, 0},
+		{isKhmer, unicode.Khmer, 0},
 	}
 
 	for _, ch := range text {
@@ -73,8 +73,8 @@ func DetectScript(text string) *unicode.RangeTable {
 
 		for i, sc := range scriptCounter {
 			if sc.checkFunc(ch) {
-				*sc.count++
-				if *sc.count > halfLen {
+				scriptCounter[i].count++
+				if scriptCounter[i].count > halfLen {
 					return sc.script
 				}
 
@@ -91,8 +91,8 @@ func DetectScript(text string) *unicode.RangeTable {
 	max := 0
 	maxScript := &unicode.RangeTable{}
 	for _, script := range scriptCounter {
-		if *script.count > max {
-			max = *script.count
+		if script.count > max {
+			max = script.count
 			maxScript = script.script
 			if script.script == _HiraganaKatakana {
 				jpCount = max
