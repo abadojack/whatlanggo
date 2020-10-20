@@ -253,7 +253,7 @@ func LangToStringShort(lang Lang) string {
 		Ori: "or",
 		Orm: "om",
 		Pan: "pa",
-		Pes: "", // No iso639-1
+		Pes: "fa",
 		Pol: "pl",
 		Por: "pt",
 		Ron: "ro",
