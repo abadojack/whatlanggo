@@ -1,8 +1,6 @@
 package whatlanggo
 
 import (
-	"sort"
-	"strings"
 	"unicode"
 )
 
@@ -17,33 +15,6 @@ func toTrigramChar(ch rune) rune {
 		return ' '
 	}
 	return ch
-}
-
-func getTrigramsWithPositions(text string) map[string]int {
-	counterMap := count(text)
-	trigrams := make([]trigram, len(counterMap))
-
-	i := 0
-	for tg, count := range counterMap {
-		trigrams[i] = trigram{tg, count}
-		i++
-	}
-
-	sort.SliceStable(trigrams, func(i, j int) bool {
-		if trigrams[i].count == trigrams[j].count {
-			return strings.Compare(trigrams[i].trigram, trigrams[j].trigram) < 0
-		}
-		return trigrams[i].count < trigrams[j].count
-	})
-
-	trigramsWithPositions := map[string]int{}
-
-	j := 0
-	for i := len(trigrams) - 1; i >= 0; i-- {
-		trigramsWithPositions[trigrams[i].trigram] = j
-		j++
-	}
-	return trigramsWithPositions
 }
 
 func count(text string) map[string]int {
@@ -74,6 +45,5 @@ func count(text string) map[string]int {
 		r1 = r2
 		r2 = r3
 	}
-
 	return trigrams
 }

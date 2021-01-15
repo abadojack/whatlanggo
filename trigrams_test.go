@@ -37,18 +37,3 @@ func TestToTrigramChar(t *testing.T) {
 		}
 	}
 }
-
-func TestGetTrigramsWithPositions(t *testing.T) {
-	tests := map[string]map[string]int{
-		"xaaaaabbbbd": {"aaa": 0, "bbb": 1},
-	}
-
-	for key, value := range tests {
-		got := getTrigramsWithPositions(key)
-		for trigram, position := range value {
-			if got[trigram] != position {
-				t.Fatalf("%s : want %d got %d", trigram, position, got[trigram])
-			}
-		}
-	}
-}
