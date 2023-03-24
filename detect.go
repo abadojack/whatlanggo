@@ -139,8 +139,9 @@ func calculateConfidence(langDistances []langDistance, trigrams map[string]int) 
 	var confidence float64
 	if score1 == 0 {
 		// If score1 is 0, score2 is 0 as well, because array is sorted.
-		// Therefore there is no language to return.
-		return -1, 0
+		// Since this is used in the context of a script, just choose first language and keep confidence 0
+
+		return langDist1.lang, 0
 	} else if score2 == 0 {
 		// If score2 is 0, return first language, to prevent division by zero in the rate formula.
 		// In this case confidence is calculated by another formula.
